@@ -5,14 +5,35 @@
 
 <div id="app"></div>
 <script type="text/x-template" id="app-template">
-  <v-app>
-    <!-- Navbar -->
-    <v-app-bar app>
-      <v-toolbar-title>My App</v-toolbar-title>
-      <!-- Add other navbar content or buttons here -->
-    </v-app-bar>
 
-      <!-- Sidebar (Navigation Drawer) -->
+    <v-app>
+      <!-- Navbar -->
+      <v-card
+    color="grey-lighten-4"
+    rounded="0"
+    flat
+  >
+    <v-toolbar density="compact">
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Application</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+    </v-toolbar>
+  </v-card>
+  <!-- Sidebar (Navigation Drawer) -->
       <v-navigation-drawer>
          <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
          <v-divider></v-divider>
@@ -20,6 +41,10 @@
          <v-list-item link title="List Item 2"></v-list-item>
          <v-list-item link title="List Item 3"></v-list-item>
        </v-navigation-drawer>
+    
+ 
+
+    
 
     <!-- Main content -->
     <v-main>
@@ -34,6 +59,7 @@
       </v-container>
     </v-main>
   </v-app>
+
 </script>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
