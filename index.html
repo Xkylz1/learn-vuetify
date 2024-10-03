@@ -5,6 +5,7 @@
 
 <div id="app"></div>
 <script type="text/x-template" id="app-template">
+
     <v-app>
       <!-- Navbar -->
       <v-card
@@ -32,20 +33,33 @@
       </v-btn>
     </v-toolbar>
   </v-card>
+  <!-- Sidebar (Navigation Drawer) -->
+      <v-navigation-drawer>
+         <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
+         <v-divider></v-divider>
+         <v-list-item link title="List Item 1"></v-list-item>
+         <v-list-item link title="List Item 2"></v-list-item>
+         <v-list-item link title="List Item 3"></v-list-item>
+       </v-navigation-drawer>
+    
+ 
 
-      <!-- Main content -->
-      <v-main>
-        <v-container>
-          <!-- Display fetched data here -->
-          <div v-if="dataUser">
-            <p>Data from API: {{ dataUser }}</p>
-          </div>
-          <div v-else>
-            <p>Loading...</p>
-          </div>
-        </v-container>
-      </v-main>
-    </v-app>
+    
+
+    <!-- Main content -->
+    <v-main>
+      <v-container>
+        <!-- Display fetched data here -->
+        <div v-if="dataUser">
+          <p>Data from API: {{ dataUser }}</p>
+        </div>
+        <div v-else>
+          <p>Loading...</p>
+        </div>
+      </v-container>
+    </v-main>
+  </v-app>
+
 </script>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
