@@ -1,17 +1,38 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.7.2/dist/vuetify.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/vuetify@3.7.2/dist/vuetify.min.css"
+/>
 
-
-<div id="app">
- 
-</div>
+<div id="app"></div>
 <script type="text/x-template" id="app-template">
     <v-app>
       <!-- Navbar -->
-      <v-app-bar app>
-        <v-toolbar-title>My App</v-toolbar-title>
-        <!-- Add other navbar content or buttons here -->
-      </v-app-bar>
-  
+      <v-card
+    color="grey-lighten-4"
+    rounded="0"
+    flat
+  >
+    <v-toolbar density="compact">
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Application</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+    </v-toolbar>
+  </v-card>
+
       <!-- Main content -->
       <v-main>
         <v-container>
@@ -25,8 +46,7 @@
         </v-container>
       </v-main>
     </v-app>
-  </script>
-  
+</script>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -36,29 +56,29 @@
 <script>
   const { createApp } = Vue;
   const { createVuetify } = Vuetify;
-  
+
   const vuetify = createVuetify();
-  
+
   const app = createApp({
     template: "#app-template",
     data() {
-        return {
-          dataUser : ''
-        }
+      return {
+        dataUser: "",
+      };
     },
     created: function () {
-        this.loadAxios()
+      this.loadAxios();
     },
     methods: {
- 
-        loadAxios(){
-            axios.get("http://localhost/pemweb/api.php")
-            .then(response =>
-                    this.dataUser = response.data)
-            .catch(err=>{console.log(err)})
-            
-        }
-    } 
+      loadAxios() {
+        axios
+          .get("http://localhost/pemweb/api.php")
+          .then((response) => (this.dataUser = response.data))
+          .catch((err) => {
+            console.log(err);
+          });
+      },
+    },
   })
     .use(vuetify)
     .mount("#app");
