@@ -1,32 +1,40 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.7.2/dist/vuetify.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/vuetify@3.7.2/dist/vuetify.min.css"
+/>
 
-
-<div id="app">
- 
-</div>
+<div id="app"></div>
 <script type="text/x-template" id="app-template">
-    <v-app>
-      <!-- Navbar -->
-      <v-app-bar app>
-        <v-toolbar-title>My App</v-toolbar-title>
-        <!-- Add other navbar content or buttons here -->
-      </v-app-bar>
-  
-      <!-- Main content -->
-      <v-main>
-        <v-container>
-          <!-- Display fetched data here -->
-          <div v-if="dataUser">
-            <p>Data from API: {{ dataUser }}</p>
-          </div>
-          <div v-else>
-            <p>Loading...</p>
-          </div>
-        </v-container>
-      </v-main>
-    </v-app>
-  </script>
-  
+  <v-app>
+    <!-- Navbar -->
+    <v-app-bar app>
+      <v-toolbar-title>My App</v-toolbar-title>
+      <!-- Add other navbar content or buttons here -->
+    </v-app-bar>
+
+      <!-- Sidebar (Navigation Drawer) -->
+      <v-navigation-drawer>
+         <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
+         <v-divider></v-divider>
+         <v-list-item link title="List Item 1"></v-list-item>
+         <v-list-item link title="List Item 2"></v-list-item>
+         <v-list-item link title="List Item 3"></v-list-item>
+       </v-navigation-drawer>
+
+    <!-- Main content -->
+    <v-main>
+      <v-container>
+        <!-- Display fetched data here -->
+        <div v-if="dataUser">
+          <p>Data from API: {{ dataUser }}</p>
+        </div>
+        <div v-else>
+          <p>Loading...</p>
+        </div>
+      </v-container>
+    </v-main>
+  </v-app>
+</script>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -36,29 +44,29 @@
 <script>
   const { createApp } = Vue;
   const { createVuetify } = Vuetify;
-  
+
   const vuetify = createVuetify();
-  
+
   const app = createApp({
     template: "#app-template",
     data() {
-        return {
-          dataUser : ''
-        }
+      return {
+        dataUser: "",
+      };
     },
     created: function () {
-        this.loadAxios()
+      this.loadAxios();
     },
     methods: {
- 
-        loadAxios(){
-            axios.get("http://localhost/pemweb/api.php")
-            .then(response =>
-                    this.dataUser = response.data)
-            .catch(err=>{console.log(err)})
-            
-        }
-    } 
+      loadAxios() {
+        axios
+          .get("http://localhost/pemweb/api.php")
+          .then((response) => (this.dataUser = response.data))
+          .catch((err) => {
+            console.log(err);
+          });
+      },
+    },
   })
     .use(vuetify)
     .mount("#app");
